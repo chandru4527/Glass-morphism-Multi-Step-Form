@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+
+    <title>Multi Step Form</title>
+
+    <style>
+        @keyframes progress {
+            from {
+                width: 100%;
+            }
+
+            to {
+                width: 0%;
+            }
+        }
+
+        .animate-progress {
+            animation: progress 4s linear forwards;
+        }
+    </style>
+</head>
+
+<body
+    class="min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-black via-slate-950 to-blue-950 relative">
+
+    <!-- Glow Effect -->
+    <div class="absolute top-0 left-0 w-80 h-80 bg-blue-500/30 rounded-full blur-3xl"></div>
+
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl"></div>
+
+    <!-- Heading -->
+    <h1 class="text-white text-4xl font-bold mb-8 tracking-[5px] z-10">
+        MULTI FORM
+    </h1>
+
+    <!-- Form -->
+    <div
+        class="relative z-10 w-[360px] p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-2xl hover:border-blue-400/40 transition duration-500">
+
+        <h2 class="text-3xl font-bold text-center text-white mb-8 tracking-wide">
+            Create Account
+        </h2>
+
+        <form id="multiForm">
+
+            <!-- STEP 1 -->
+            <div class="form space-y-5">
+
+                <div class="relative">
+                    <i class="ri-user-3-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+
+                    <input type="text" placeholder="Full Name"
+                        class="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 transition duration-300"
+                        required />
+                </div>
+
+                <div class="relative">
+                    <i class="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+
+                    <input type="email" placeholder="Email Address"
+                        class="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 transition duration-300"
+                        required />
+                </div>
+
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="form hidden space-y-5">
+
+                <div class="relative">
+                    <i class="ri-map-pin-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+
+                    <input type="text" placeholder="Address"
+                        class="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30 transition duration-300"
+                        required />
+                </div>
+
+                <div class="relative">
+                    <i class="ri-smartphone-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+
+                    <input type="text" placeholder="Mobile Number"
+                        class="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30 transition duration-300"
+                        required />
+                </div>
+
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="form hidden space-y-5">
+
+                <div class="relative">
+                    <i class="ri-lock-password-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+
+                    <input type="password" placeholder="Password"
+                        class="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 transition duration-300"
+                        required />
+                </div>
+
+                <div class="relative">
+                    <i class="ri-lock-2-line absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+
+                    <input type="password" placeholder="Confirm Password"
+                        class="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/10 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 transition duration-300"
+                        required />
+                </div>
+
+            </div>
+
+            <!-- Progress -->
+            <div class="mt-7">
+                <input type="range" id="range" min="1" max="3" value="1"
+                    class="w-full accent-blue-500 cursor-pointer" />
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-between mt-8">
+
+                <button type="button"
+                    class="prev hidden px-5 py-2 rounded-xl border border-white/10 bg-white/10 text-white hover:bg-white/20 hover:-translate-y-1 transition duration-300">
+                    Prev
+                </button>
+
+                <button type="button"
+                    class="next ml-auto px-6 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:scale-105 hover:-translate-y-1 transition duration-300">
+                    Next
+                </button>
+
+                <button type="submit"
+                    class="sbtn hidden ml-auto px-6 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-700 text-white font-semibold hover:scale-105 hover:-translate-y-1 transition duration-300">
+                    Submit
+                </button>
+
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Alert -->
+    <div id="alertBox"
+        class="fixed top-5 right-5 translate-x-[500px] transition-all duration-500 bg-gradient-to-r from-green-600 to-green-800 text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-4 min-w-[320px] overflow-hidden z-50">
+
+        <!-- Icon -->
+        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+            <i class="ri-checkbox-circle-fill text-2xl"></i>
+        </div>
+
+        <!-- Text -->
+        <div class="flex-1">
+            <h3 class="font-bold text-lg">Success</h3>
+            <p class="text-sm text-white/80">
+                Form submitted successfully
+            </p>
+        </div>
+
+        <!-- Close -->
+        <button id="closeAlert">
+            <i class="ri-close-line text-2xl hover:text-red-200 transition"></i>
+        </button>
+
+        <!-- Progress Bar -->
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-white/20 overflow-hidden">
+            <div id="alertProgress" class="h-full w-full bg-white"></div>
+        </div>
+
+    </div>
+
+    <script>
+
+        const forms = document.querySelectorAll(".form");
+        const nextBtn = document.querySelector(".next");
+        const prevBtn = document.querySelector(".prev");
+        const submitBtn = document.querySelector(".sbtn");
+        const range = document.querySelector("#range");
+
+        const alertBox = document.querySelector("#alertBox");
+        const closeAlert = document.querySelector("#closeAlert");
+        const progress = document.querySelector("#alertProgress");
+
+        let current = 0;
+
+        // show form
+        function showForm(index) {
+
+            forms.forEach((form) => {
+                form.classList.add("hidden");
+            });
+
+            forms[index].classList.remove("hidden");
+
+            // prev button
+            if (index === 0) {
+                prevBtn.classList.add("hidden");
+            } else {
+                prevBtn.classList.remove("hidden");
+            }
+
+            // next / submit
+            if (index === forms.length - 1) {
+                nextBtn.classList.add("hidden");
+                submitBtn.classList.remove("hidden");
+            } else {
+                nextBtn.classList.remove("hidden");
+                submitBtn.classList.add("hidden");
+            }
+
+            // range
+            range.value = index + 1;
+        }
+
+        // next
+        nextBtn.addEventListener("click", () => {
+
+            if (current < forms.length - 1) {
+                current++;
+                showForm(current);
+            }
+
+        });
+
+        // prev
+        prevBtn.addEventListener("click", () => {
+
+            if (current > 0) {
+                current--;
+                showForm(current);
+            }
+
+        });
+
+        // submit
+        document
+            .querySelector("#multiForm")
+            .addEventListener("submit", (e) => {
+
+                e.preventDefault();
+
+                // show alert
+                alertBox.classList.remove("translate-x-[500px]");
+
+                // restart progress animation
+                progress.classList.remove("animate-progress");
+
+                void progress.offsetWidth;
+
+                progress.classList.add("animate-progress");
+
+                // reset form
+                e.target.reset();
+
+                // first step
+                current = 0;
+                showForm(current);
+
+                // hide alert
+                setTimeout(() => {
+                    alertBox.classList.add("translate-x-[500px]");
+                }, 4000);
+
+            });
+
+        // close alert
+        closeAlert.addEventListener("click", () => {
+
+            alertBox.classList.add("translate-x-[500px]");
+
+        });
+
+        // initial
+        showForm(current);
+
+    </script>
+
+</body>
+
+</html>
